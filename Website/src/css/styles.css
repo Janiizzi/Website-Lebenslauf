@@ -1,0 +1,337 @@
+/* Fonts */
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto/Roboto-Regular.ttf") format(truetype);
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto/Roboto-Light.ttf") format(truetype);
+    font-style:normal;
+    font-weight:300;
+}
+
+@font-face {
+    font-family: "Roboto-Slab";
+    src: url("../fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf") format(truetype);
+    font-style: normal;
+    font-weight: 100 900;
+}
+
+
+/* Allgemein */
+
+
+* {
+    font-size: 16px;
+}
+
+
+body {
+    font-family: Roboto;
+}
+
+.h1 {
+    font-family: Roboto-Slab;
+    font-weight: 400;
+    letter-spacing: .1rem;
+}
+
+.h5 {
+    font-family: Roboto;
+    font-weight: 300;
+    font-size: 1.5rem;
+    letter-spacing: .2rem;
+    word-spacing: 4px;
+}
+
+
+
+/* Navbar */
+.nav-link {
+    transition-property: all;
+    transition-duration: .1s;
+    border-bottom: 1px solid #fff;
+
+}
+.nav-link:hover {
+    border-bottom: 3px solid #034424;
+    border-bottom-width: 1.5px;
+    color: #034424;
+}
+
+.nav-link.active {
+    color: #222 !important;
+    font-weight: 500;
+}
+
+.navbar-expand-lg .navbar-collapse{
+    flex-basis: 100%; 
+}
+
+.container-extra {
+    width: 80%;
+    max-width: 1140px;
+}
+
+
+
+@keyframes turnAround {
+    0% {transform: rotateZ(0);}
+    20% {transform: rotateZ(90deg);}
+    100% {transform: rotateZ(-720deg);}
+}
+
+
+.navbar-brand:hover {
+    animation: turnAround .6s;
+}
+
+.navbar {
+    background-color: #fff !important;
+    transition: transform 0.3s;
+    will-change: transform;
+}
+
+/* Neu hinzugefügte Styles für die Navbar */
+.navbar-collapse {
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 1rem;
+}
+
+/* Hamburger-Button ohne Rahmen, mit schwarzen Linien */
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0.4rem 0.7rem;
+}
+
+/* Hamburger-Icon (die drei Linien) schwarz färben */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
+/* Homebanner Bild + Text */
+.home-banner {
+    margin: 100px 0 0 0;
+}
+
+
+
+
+.home-banner-text .h5 {
+    margin: 0 0 0 0;
+    font-size: clamp(.8rem, 2vw, 2rem);
+
+}
+
+.home-banner-text .h1 {
+    width: 100%;
+    font-size: clamp(1rem, 4vw, 3.5rem);
+}
+
+/* ========================
+   Interactive Desk Items
+   ========================*/
+
+/* Desk-Wrapper als Bezugspunkt */
+#desk-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Alle Bilder exakt übereinander */
+#desk-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Desk-Items exakt deckungsgleich platzieren */
+.desk-item {
+    position: absolute;
+    pointer-events: auto;
+    transition: transform 0.2s;
+    z-index: 2;
+}
+.desk-item:hover {
+    transform: scale(1.08);
+    z-index: 3;
+}
+
+.desk-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    pointer-events: none;
+}
+
+.item-coffee {
+    top: 45%;
+    left: 19%;     
+    width: 6%;    
+}
+
+.item-plant {
+    top: 0%;
+    left: 75%;
+    width: 12.8%;
+}
+
+.item-golfball {
+    top: 77%;
+    left: 68%;
+    width: 4.5%;
+}
+
+.item-paper {
+    top: 68%;
+    left: 8%;
+    width: 14%;
+}
+
+.item-water {
+    top: 32%;
+    left: 68%;
+    width: 7%;
+}
+
+.item-keyboard {
+    top: 60%;
+    left: 28%;
+    width: 35%;
+}
+
+/* 5) Responsive: Bei kleinen Screens ggf. anpassen */
+@media (max-width: 576px) {
+    #desk-wrapper {
+        width: 200vw;              /* Dreifache Breite des Viewports */
+        max-width: none;
+        position: relative;
+        left: -35vw;              /* Verschiebt den Wrapper um ein Drittel nach links */
+        overflow: hidden;
+    }
+    .item-coffee {
+        top: 47%;
+        left: 19%;
+        width: 6%;
+    }
+    .item-plant {
+        display: none !important;
+    }
+    .item-golfball {
+        top: 76%;
+        left: 69%;
+        width: 4%;
+    }
+    .item-paper {
+        display: none !important;
+    }
+    .item-water {
+        display: none !important;
+    }
+    .item-keyboard {
+        top: 61%;
+        left: 27%;
+        width: 37%;
+    }
+}
+
+
+
+
+
+
+/* Media Querries */
+
+/* Iphone */
+@media (max-width: 576px) {
+
+    .h5 {
+        font-size: 4vw;
+        letter-spacing: 0;
+        word-spacing: 1.5px;
+    }
+
+    /* Homebanner Bild + Text */
+    .home-banner {
+        overflow: hidden;
+    }
+    .home-banner-text {
+        margin: 10vh 0 0 0;
+    }
+
+    .home-banner-text .h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (min-width: 992px) {
+    .navbar-text {flex-basis: 100%;}
+}
+
+
+/* Loading Bar Styles */
+#loading-bar-frame {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 38px;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index: 9999;
+    display: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#loading-bar-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    margin-bottom: 3px;
+    color: #111;
+}
+
+#loading-bar-blocks {
+    width: 100%;
+    height: 14px;
+    border: 2px solid #111;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 1px 2px;
+    gap: 1px;
+}
+
+.loading-bar-block {
+    width: 6px;
+    height: 10px;
+    background: #111;
+    display: inline-block;
+    opacity: 0.8;
+    transition: background 0.1s;
+}
+
+
+
+
+
