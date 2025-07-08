@@ -164,7 +164,7 @@ body {
     z-index: 2;
 }
 .desk-item:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
     z-index: 3;
 }
 
@@ -175,8 +175,13 @@ body {
     pointer-events: none;
 }
 
+/* Kaffeetasse soll sich nicht skalieren */
+.item-coffee:hover {
+    transform: none;
+}
+
 .item-coffee {
-    top: 45%;
+    top: 44%;
     left: 19%;     
     width: 6%;    
 }
@@ -211,79 +216,62 @@ body {
     width: 35%;
 }
 
-/* 5) Responsive: Bei kleinen Screens ggf. anpassen */
-@media (max-width: 576px) {
-    #desk-wrapper {
-        width: 200vw;              /* Dreifache Breite des Viewports */
-        max-width: none;
-        position: relative;
-        left: -35vw;              /* Verschiebt den Wrapper um ein Drittel nach links */
-        overflow: hidden;
+/* Coffee Animation */
+.item-coffee .coffee-open1,
+.item-coffee .coffee-open2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.item-coffee .coffee-normal {
+    opacity: 1;
+}
+
+/* Nur auf Geräten mit echter Hover-Funktion (Maus) */
+@media (hover: hover) {
+    .item-coffee:hover .coffee-normal {
+        opacity: 0;
+        visibility: hidden;
     }
-    .item-coffee {
-        top: 47%;
-        left: 19%;
-        width: 6%;
+
+    .item-coffee:hover .coffee-open1 {
+        animation: coffeeAnimation1 0.6s infinite;
     }
-    .item-plant {
-        display: none !important;
-    }
-    .item-golfball {
-        top: 76%;
-        left: 69%;
-        width: 4%;
-    }
-    .item-paper {
-        display: none !important;
-    }
-    .item-water {
-        display: none !important;
-    }
-    .item-keyboard {
-        top: 61%;
-        left: 27%;
-        width: 37%;
+
+    .item-coffee:hover .coffee-open2 {
+        animation: coffeeAnimation2 0.6s infinite;
     }
 }
 
-
-
-
-
-
-/* Media Querries */
-
-/* Iphone */
-@media (max-width: 576px) {
-
-    .h5 {
-        font-size: 4vw;
-        letter-spacing: 0;
-        word-spacing: 1.5px;
+/* Auf Touch-Geräten: Kontinuierliche Animation zwischen open1 und open2 */
+@media (hover: none) {
+    .item-coffee .coffee-normal {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .item-coffee .coffee-open1 {
+        animation: coffeeAnimation1 2s infinite;
     }
 
-    /* Homebanner Bild + Text */
-    .home-banner {
-        overflow: hidden;
-    }
-    .home-banner-text {
-        margin: 10vh 0 0 0;
-    }
-
-    .home-banner-text .h1 {
-        font-size: 2.2rem;
-        line-height: 1.1;
+    .item-coffee .coffee-open2 {
+        animation: coffeeAnimation2 2s infinite;
     }
 }
 
-@media (max-width: 768px) {
-
+@keyframes coffeeAnimation1 {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
-@media (min-width: 992px) {
-    .navbar-text {flex-basis: 100%;}
+@keyframes coffeeAnimation2 {
+    0%, 50% { opacity: 0; }
+    51%, 100% { opacity: 1; }
 }
-
 
 /* Loading Bar Styles */
 #loading-bar-frame {
@@ -329,6 +317,70 @@ body {
     display: inline-block;
     opacity: 0.8;
     transition: background 0.1s;
+}
+
+/* Media Queries */
+@media (max-width: 576px) {
+    #desk-wrapper {
+        width: 200vw;
+        max-width: none;
+        position: relative;
+        left: -35vw;
+        overflow: hidden;
+    }
+    
+    .item-coffee {
+        top: 47%;
+        left: 19%;
+        width: 6%;
+    }
+    
+    .item-plant {
+        display: none !important;
+    }
+    
+    .item-golfball {
+        top: 76%;
+        left: 69%;
+        width: 4%;
+    }
+    
+    .item-paper {
+        display: none !important;
+    }
+    
+    .item-water {
+        display: none !important;
+    }
+    
+    .item-keyboard {
+        top: 61%;
+        left: 27%;
+        width: 37%;
+    }
+
+    .h5 {
+        font-size: 4vw;
+        letter-spacing: 0;
+        word-spacing: 1.5px;
+    }
+
+    /* Homebanner Bild + Text */
+    .home-banner {
+        overflow: hidden;
+    }
+    .home-banner-text {
+        margin: 10vh 0 0 0;
+    }
+
+    .home-banner-text .h1 {
+        font-size: 2.2rem;
+        line-height: 1.1;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-text {flex-basis: 100%;}
 }
 
 
