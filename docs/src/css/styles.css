@@ -9,8 +9,8 @@
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/Roboto/Roboto-Light.ttf") format(truetype);
-    font-style:normal;
-    font-weight:300;
+    font-style: normal;
+    font-weight: 300;
 }
 
 @font-face {
@@ -56,6 +56,7 @@ body {
     border-bottom: 1px solid #fff;
 
 }
+
 .nav-link:hover {
     border-bottom: 3px solid #034424;
     border-bottom-width: 1.5px;
@@ -67,8 +68,8 @@ body {
     font-weight: 500;
 }
 
-.navbar-expand-lg .navbar-collapse{
-    flex-basis: 100%; 
+.navbar-expand-lg .navbar-collapse {
+    flex-basis: 100%;
 }
 
 .container-extra {
@@ -79,9 +80,17 @@ body {
 
 
 @keyframes turnAround {
-    0% {transform: rotateZ(0);}
-    20% {transform: rotateZ(90deg);}
-    100% {transform: rotateZ(-720deg);}
+    0% {
+        transform: rotateZ(0);
+    }
+
+    20% {
+        transform: rotateZ(90deg);
+    }
+
+    100% {
+        transform: rotateZ(-720deg);
+    }
 }
 
 
@@ -163,6 +172,7 @@ body {
     transition: transform 0.2s;
     z-index: 2;
 }
+
 .desk-item:hover {
     transform: scale(1.05);
     z-index: 3;
@@ -182,8 +192,8 @@ body {
 
 .item-coffee {
     top: 44%;
-    left: 19%;     
-    width: 6%;    
+    left: 19%;
+    width: 6%;
 }
 
 .item-plant {
@@ -253,7 +263,7 @@ body {
         opacity: 0;
         visibility: hidden;
     }
-    
+
     .item-coffee .coffee-open1 {
         animation: coffeeAnimation1 2s infinite;
     }
@@ -264,14 +274,99 @@ body {
 }
 
 @keyframes coffeeAnimation1 {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes coffeeAnimation2 {
-    0%, 50% { opacity: 0; }
-    51%, 100% { opacity: 1; }
+
+    0%,
+    50% {
+        opacity: 0;
+    }
+
+    51%,
+    100% {
+        opacity: 1;
+    }
 }
+
+/* ========================
+   Paper Animation
+   ========================*/
+
+.item-paper .paper-2,
+.item-paper .paper-3,
+.item-paper .paper-4,
+.item-paper .paper-5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.item-paper .paper-1 {
+    opacity: 1;
+}
+
+/* Nur auf Geräten mit echter Hover-Funktion (Maus) */
+@media (hover: hover) {
+    .item-paper:hover .paper-1 { 
+        opacity: 0; 
+        visibility: hidden; 
+    }
+    .item-paper:hover .paper-2 { 
+        animation: paperSequence 3s forwards; 
+    }
+    .item-paper:hover .paper-3 { 
+        animation: paperSequence 3s forwards 0.6s; 
+    }
+    .item-paper:hover .paper-4 { 
+        animation: paperSequence 3s forwards 1.2s; 
+    }
+    .item-paper:hover .paper-5 { 
+        animation: paperSequenceStay 3s forwards 1.8s; 
+    }
+}
+
+/* Auf Touch-Geräten: Animation alle 60 Sekunden */
+@media (hover: none) {
+    .item-paper .paper-1 { 
+        opacity: 0; 
+        visibility: hidden; 
+    }
+    .item-paper .paper-2 { 
+        animation: paperSequence 60s infinite; 
+    }
+    .item-paper .paper-3 { 
+        animation: paperSequence 60s infinite 12s; 
+    }
+    .item-paper .paper-4 { 
+        animation: paperSequence 60s infinite 24s; 
+    }
+    .item-paper .paper-5 { 
+        animation: paperSequence 60s infinite 36s; 
+    }
+}
+
+@keyframes paperSequence {
+    0%, 20% { opacity: 1; }
+    21%, 100% { opacity: 0; }
+}
+@keyframes paperSequenceStay {
+    0%, 100% { opacity: 1; } /* Bleibt sichtbar */
+}
+
 
 /* Loading Bar Styles */
 #loading-bar-frame {
@@ -328,31 +423,31 @@ body {
         left: -35vw;
         overflow: hidden;
     }
-    
+
     .item-coffee {
         top: 47%;
         left: 19%;
         width: 6%;
     }
-    
+
     .item-plant {
         display: none !important;
     }
-    
+
     .item-golfball {
         top: 76%;
         left: 69%;
         width: 4%;
     }
-    
+
     .item-paper {
         display: none !important;
     }
-    
+
     .item-water {
         display: none !important;
     }
-    
+
     .item-keyboard {
         top: 61%;
         left: 27%;
@@ -369,6 +464,7 @@ body {
     .home-banner {
         overflow: hidden;
     }
+
     .home-banner-text {
         margin: 10vh 0 0 0;
     }
@@ -380,10 +476,7 @@ body {
 }
 
 @media (min-width: 992px) {
-    .navbar-text {flex-basis: 100%;}
+    .navbar-text {
+        flex-basis: 100%;
+    }
 }
-
-
-
-
-
