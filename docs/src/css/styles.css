@@ -326,16 +326,16 @@ body {
         visibility: hidden; 
     }
     .item-paper:hover .paper-2 { 
-        animation: paperSequence 3s forwards; 
+        animation: paperSequence 0.8s forwards; 
     }
     .item-paper:hover .paper-3 { 
-        animation: paperSequence 3s forwards 0.6s; 
+        animation: paperSequence 0.8s forwards 0.2s; 
     }
     .item-paper:hover .paper-4 { 
-        animation: paperSequence 3s forwards 1.2s; 
+        animation: paperSequence 0.8s forwards 0.4s; 
     }
     .item-paper:hover .paper-5 { 
-        animation: paperSequenceStay 3s forwards 1.8s; 
+        animation: paperSequenceStay 0.7s forwards 0.6s; 
     }
 }
 
@@ -363,10 +363,46 @@ body {
     0%, 20% { opacity: 1; }
     21%, 100% { opacity: 0; }
 }
+
 @keyframes paperSequenceStay {
-    0%, 100% { opacity: 1; } /* Bleibt sichtbar */
+    0%, 100% { opacity: 1; }
 }
 
+/* Neue Animation: Paper fliegt nach links raus und springt einmal */
+@keyframes paperFlyOut {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+ 
+    70% {
+        transform: translate(40vw, 0vh) rotate(-1000deg) scale(40);
+        opacity: 1;
+    }
+    90% {
+        transform: translate(40vw, -80px) rotate(-2000deg) scale(40);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(40vw, -80px) rotate(-3000deg) scale(50);
+        opacity: 0;
+    }
+}
+
+/* Klick-Animation für Paper - nur sichtbare Paper animieren */
+.item-paper.paper-clicked .paper-5 {
+    animation: paperFlyOut 1.2s ease-out forwards !important;
+    z-index: 10000 !important; /* Höher als Loading Bar (9999) */
+}
+
+/* Sicherstellen dass das Paper über allem liegt */
+.item-paper.paper-clicked {
+    z-index: 10000 !important;
+}
+
+/* ========================
+   Loading Bar
+   ========================*/
 
 /* Loading Bar Styles */
 #loading-bar-frame {

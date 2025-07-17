@@ -64,6 +64,7 @@ function hideLoadingBarRetro() {
     }, 200);
 }
 
+// NAVBAR Event Listeners (mit Loading Bar)
 document.querySelectorAll('.nav-link, .navbar-brand').forEach(link => {
     link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -76,3 +77,27 @@ document.querySelectorAll('.nav-link, .navbar-brand').forEach(link => {
 });
 
 window.addEventListener('pageshow', hideLoadingBarRetro);
+
+// DESK ITEMS Event Listeners (direkte Navigation)
+document.addEventListener('DOMContentLoaded', function() {
+    const deskItems = document.querySelectorAll('.desk-item');
+    
+    deskItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+            
+            // Paper Animation
+            if (this.classList.contains('item-paper')) {
+                const paperItem = document.querySelector('.item-paper');
+                paperItem.classList.add('paper-clicked');
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 800);
+            } else {
+                // Direkte Navigation für andere Desk Items
+                window.location.href = url;
+            }
+        });
+    });
+});
