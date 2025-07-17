@@ -7,15 +7,10 @@
 
     <title>Projects – Janis Harms | Life & Projects</title>
 
-    <!-- Dark-mode favicon -->
-    <link rel="icon" href="/src/img/favicons/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
-
-    <!-- Light-mode favicon -->
-    <link rel="icon" href="/src/img/favicons/favicon-light.ico" type="image/x-icon"
-        media="(prefers-color-scheme: light)">
-
-    <!-- Fallback for browsers that don’t support media=... -->
-    <link rel="icon" href="/src/img/favicons/favicon-light.ico" type="image/x-icon">
+    <!-- Favicon-Pfade korrigiert (../ hinzugefügt) -->
+    <link rel="icon" href="../src/img/favicons/favicon-dark.ico" type="image/x-icon" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="../src/img/favicons/favicon-light.ico" type="image/x-icon" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="../src/img/favicons/favicon-light.ico" type="image/x-icon">
 
     <!-- Light theme bar color -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -25,7 +20,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../src/css/styles.css">
 
     <!--Seo Tags-->
     <meta name="description"
@@ -33,25 +28,31 @@
     <meta name="keywords"
         content="Janis Harms, projects, web developer, diary, ideas, portfolio, playground, inspiration, experiments">
     <meta name="author" content="Janis Harms">
-    <link rel="canonical" href="https://janisharms.ch/projects.html">
+    <link rel="canonical" href="https://janisharms.ch/projects/">
 </head>
 
-
-
-
 <body>
+    <!-- Loading Bar -->
+    <div id="loading-bar-frame">
+        <div id="loading-bar-label">
+            <span id="loading-bar-text">LOADING...</span>
+            <span id="loading-bar-percent">0%</span>
+        </div>
+        <div id="loading-bar-blocks"></div>
+    </div>
+
     <nav class="navbar navbar-expand-lg  mt-3 mt-sm-4">
         <div class="container-fluid container-extra">
             <!-- Links -->
             <div class="navbar-text">
-                <a class="nav-item pe-2" href="src/img/Janis_Harms_Lebenslauf.pdf"
+                <a class="nav-item pe-2" href="../src/img/Janis_Harms_Lebenslauf.pdf"
                     download="Janis_Harms_Lebenslauf.pdf"><i class="fa-solid fa-file-arrow-down"
                         style="color:black; font-size: 20px;"></i></a>
                 CV
             </div>
 
             <!-- Nav Brand -->
-            <a class="navbar-brand brand-animation" href="/"><img class="" src="src/img/LOGO-Janis.png"
+            <a class="navbar-brand brand-animation" href="../"><img class="" src="../src/img/LOGO-Janis.png"
                     alt="Logo Janis Harms" style="width:2rem ;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".all-navbar-links"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,10 +62,9 @@
             <!-- Navbar Links -->
             <div class="collapse navbar-collapse all-navbar-links">
                 <ul class="navbar-nav ms-auto mb-4 mb-lg-0">
-                    <li class="nav-item mx-md-2 px-md-0"><a href="about/" class="nav-link">about</a></li>
-                    <li class="nav-item mx-md-2 px-md-0 active"><a href="projects/" class="nav-link active">projects</a>
-                    </li>
-                    <li class="nav-item mx-md-2 px-md-0"><a href="contact/" class="nav-link">contact</a></li>
+                    <li class="nav-item mx-md-2 px-md-0"><a href="../about/" class="nav-link">about</a></li>
+                    <li class="nav-item mx-md-2 px-md-0"><a href="../projects/" class="nav-link active">projects</a></li>
+                    <li class="nav-item mx-md-2 px-md-0"><a href="../contact/" class="nav-link">contact</a></li>
                 </ul>
             </div>
 
@@ -75,20 +75,11 @@
         <!-- Alles außer Navbar und Ladeleiste -->
     </div>
 
-    <!-- Loading Bar -->
-    <div id="loading-bar-frame">
-        <div id="loading-bar-label">
-            <span id="loading-bar-text">LOADING...</span>
-            <span id="loading-bar-percent">0%</span>
-        </div>
-        <div id="loading-bar-blocks"></div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/09b52a9cea.js" crossorigin="anonymous"></script>
-    <script src="src/js/main.js"></script>
+    <script src="../src/js/main.js"></script>
 </body>
 
 </html>
